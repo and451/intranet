@@ -11,6 +11,7 @@ import {
   Mail,
   Rocket
 } from 'lucide-react';
+import AgendaSidebar from './AgendaSidebar';
 
 const links = [
   { href: '/', label: 'Início', icon: LayoutDashboard },
@@ -38,7 +39,7 @@ export default function Sidebar() {
         </Link>
       </div>
 
-      <nav className="flex-1 px-4 py-2">
+      <nav className="flex-1 px-4 py-2 overflow-y-auto">
         <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3 px-3">Menu</p>
         <ul className="space-y-1">
           {links.map((link) => {
@@ -61,17 +62,9 @@ export default function Sidebar() {
             );
           })}
         </ul>
-      </nav>
 
-      <div className="p-4">
-        <div className="bg-gradient-to-br from-blue-600/20 to-indigo-600/20 border border-white/10 rounded-2xl p-4">
-          <p className="text-xs text-gray-400 mb-1">AEB Escola</p>
-          <p className="text-sm font-medium text-white mb-2">Novo curso disponível</p>
-          <Link href="/aeb-escola" className="inline-block text-xs bg-white/10 hover:bg-white/20 text-white px-3 py-1.5 rounded-lg transition">
-            Ver cursos
-          </Link>
-        </div>
-      </div>
+        <AgendaSidebar />
+      </nav>
 
       <div className="p-4 border-t border-white/10">
         <div className="flex items-center gap-3">

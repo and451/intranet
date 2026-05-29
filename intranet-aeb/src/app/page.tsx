@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Newspaper, FileText, Rocket, Calendar, ChevronRight, TrendingUp } from "lucide-react";
+import TeamsOutlookPanel from "@/components/TeamsOutlookPanel";
 
 const noticiasDestaque = [
   { id: 1, titulo: "Reunião Planejamento Estratégico", data: "28/05/2026", categoria: "DGEP", cor: "bg-blue-50 text-blue-700" },
@@ -70,10 +71,10 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Grid principal */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Coluna principal — Notícias */}
-        <div className="lg:col-span-2 space-y-6">
+      {/* Grid principal: Notícias + Teams/Outlook */}
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
+        {/* Coluna principal — Notícias e AEB Escola */}
+        <div className="lg:col-span-3 space-y-6">
           <div className="bg-white rounded-3xl p-6 border border-[#e5e5e0]">
             <div className="flex items-center justify-between mb-5">
               <h3 className="text-lg font-bold text-[#1a1a1a]">Acontece na AEB</h3>
@@ -109,77 +110,57 @@ export default function Home() {
               <span className="text-xs text-white/50">Vagas limitadas</span>
             </div>
           </div>
+
+          {/* Boletins + Eventos em grid de 2 colunas */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-white rounded-3xl p-6 border border-[#e5e5e0]">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-sm font-bold text-[#1a1a1a]">Boletins</h3>
+                <Link href="/boletins" className="text-[10px] font-medium text-[#737373] hover:text-[#1a1a1a] flex items-center gap-1 transition">
+                  Todos <ChevronRight className="w-3 h-3" />
+                </Link>
+              </div>
+              <div className="space-y-2">
+                {boletinsRecentes.map((b) => (
+                  <div key={b.id} className="flex items-center gap-2.5 p-2 rounded-xl hover:bg-[#f8f8f5] transition">
+                    <div className="w-8 h-8 bg-[#f0f0eb] rounded-lg flex items-center justify-center flex-shrink-0">
+                      <FileText className="w-3.5 h-3.5 text-[#737373]" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-[11px] font-semibold text-[#1a1a1a] truncate">{b.numero}</p>
+                      <p className="text-[9px] text-[#737373]">{b.data}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="bg-white rounded-3xl p-6 border border-[#e5e5e0]">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="text-sm font-bold text-[#1a1a1a]">Eventos</h3>
+                <Calendar className="w-4 h-4 text-[#737373]" />
+              </div>
+              <div className="space-y-3">
+                {eventosProximos.map((e) => (
+                  <div key={e.id} className="flex gap-2.5">
+                    <div className="w-10 h-10 bg-[#f0f0eb] rounded-xl flex flex-col items-center justify-center flex-shrink-0">
+                      <span className="text-[9px] font-bold text-[#737373] uppercase">{e.data.split('/')[1]}</span>
+                      <span className="text-xs font-bold text-[#1a1a1a]">{e.data.split('/')[0]}</span>
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-xs font-semibold text-[#1a1a1a] line-clamp-1">{e.titulo}</p>
+                      <p className="text-[10px] text-[#737373]">{e.hora}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Coluna lateral */}
-        <div className="space-y-6">
-          {/* Boletins */}
-          <div className="bg-white rounded-3xl p-6 border border-[#e5e5e0]">
-            <div className="flex items-center justify-between mb-5">
-              <h3 className="text-lg font-bold text-[#1a1a1a]">Boletins</h3>
-              <Link href="/boletins" className="text-xs font-medium text-[#737373] hover:text-[#1a1a1a] flex items-center gap-1 transition">
-                Todos <ChevronRight className="w-3 h-3" />
-              </Link>
-            </div>
-            <div className="space-y-3">
-              {boletinsRecentes.map((b) => (
-                <div key={b.id} className="flex items-center gap-3 p-3 rounded-xl hover:bg-[#f8f8f5] transition">
-                  <div className="w-10 h-10 bg-[#f0f0eb] rounded-xl flex items-center justify-center flex-shrink-0">
-                    <FileText className="w-4 h-4 text-[#737373]" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-xs font-semibold text-[#1a1a1a] truncate">{b.numero}</p>
-                    <p className="text-[10px] text-[#737373]">{b.data} · {b.tipo}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Eventos */}
-          <div className="bg-white rounded-3xl p-6 border border-[#e5e5e0]">
-            <div className="flex items-center justify-between mb-5">
-              <h3 className="text-lg font-bold text-[#1a1a1a]">Próximos Eventos</h3>
-              <Calendar className="w-4 h-4 text-[#737373]" />
-            </div>
-            <div className="space-y-4">
-              {eventosProximos.map((e) => (
-                <div key={e.id} className="flex gap-3">
-                  <div className="w-12 h-12 bg-[#f0f0eb] rounded-2xl flex flex-col items-center justify-center flex-shrink-0">
-                    <span className="text-[10px] font-bold text-[#737373] uppercase">{e.data.split('/')[1]}</span>
-                    <span className="text-sm font-bold text-[#1a1a1a]">{e.data.split('/')[0]}</span>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-semibold text-[#1a1a1a] line-clamp-1">{e.titulo}</p>
-                    <p className="text-xs text-[#737373]">{e.hora}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Links rápidos */}
-          <div className="bg-white rounded-3xl p-6 border border-[#e5e5e0]">
-            <h3 className="text-lg font-bold text-[#1a1a1a] mb-4">Links Úteis</h3>
-            <div className="space-y-2">
-              {[
-                { label: "Dicas de segurança em viagens", href: "#" },
-                { label: "Observatório do Setor Espacial", href: "#" },
-                { label: "Portal da AEB", href: "https://www.gov.br/aeb" },
-              ].map((link) => (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  target={link.href.startsWith('http') ? '_blank' : undefined}
-                  rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="flex items-center justify-between p-3 rounded-xl hover:bg-[#f8f8f5] transition group"
-                >
-                  <span className="text-sm font-medium text-[#1a1a1a]">{link.label}</span>
-                  <ChevronRight className="w-4 h-4 text-[#737373] group-hover:text-[#1a1a1a] transition" />
-                </a>
-              ))}
-            </div>
-          </div>
+        {/* Coluna lateral — Teams + Outlook + Reuniões */}
+        <div className="lg:col-span-2">
+          <TeamsOutlookPanel />
         </div>
       </div>
     </div>
