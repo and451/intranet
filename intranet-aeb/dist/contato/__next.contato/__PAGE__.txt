@@ -1,0 +1,5 @@
+1:"$Sreact.fragment"
+2:I[11693,["/_next/static/chunks/17gwqbek8i1o0.js","/_next/static/chunks/0~cdphjpsar_z.js"],"OutletBoundary"]
+3:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[["$","div",null,{"children":[["$","h1",null,{"className":"text-2xl font-bold text-blue-900 mb-6","children":"Contato"}],["$","div",null,{"className":"space-y-4 text-gray-700","children":[["$","p",null,{"children":["$","strong",null,{"children":"Agência Espacial Brasileira — AEB"}]}],["$","p",null,{"children":["Setor Policial — SPO, Área 5, Quadra 3, Bloco A",["$","br",null,{}],"Brasília/DF — CEP 70610-200"]}],["$","p",null,{"children":[["$","strong",null,{"children":"Telefone:"}]," (61) 2028-7000"]}],["$","p",null,{"children":[["$","strong",null,{"children":"Site:"}]," ",["$","a",null,{"href":"https://www.gov.br/aeb","target":"_blank","rel":"noopener noreferrer","className":"text-blue-700 hover:underline","children":"www.gov.br/aeb"}]]}]]}]]}],null,["$","$L2",null,{"children":["$","$3",null,{"name":"Next.MetadataOutlet","children":"$@4"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"eYXtZ4DT9B5NqtcNsQB5o"}
+4:null
