@@ -1,2 +1,2 @@
-:HL["/_next/static/chunks/0dwgqyg.3nrf..css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"aeb-escola","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"eYXtZ4DT9B5NqtcNsQB5o"}
+:HL["/_next/static/chunks/0l0.6a_b6ji.x.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"aeb-escola","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"sH285-9-6i42Mh4qRPPGl"}

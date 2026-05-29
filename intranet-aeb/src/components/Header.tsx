@@ -1,26 +1,37 @@
+"use client";
+
+import { Search, Bell, Menu } from 'lucide-react';
+import { useState } from 'react';
 import Link from 'next/link';
 
 export default function Header() {
+  const [searchOpen, setSearchOpen] = useState(false);
+
   return (
-    <header className="bg-blue-900 text-white shadow-md">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-900 font-bold text-xl">
-            AEB
-          </div>
-          <div>
-            <h1 className="text-xl font-bold">INTRAEB</h1>
-            <p className="text-xs text-blue-200">Intranet da Agência Espacial Brasileira</p>
-          </div>
-        </Link>
-        <nav className="hidden md:flex gap-6">
-          <Link href="/" className="hover:text-blue-200 transition">Início</Link>
-          <Link href="/noticias" className="hover:text-blue-200 transition">Notícias</Link>
-          <Link href="/boletins" className="hover:text-blue-200 transition">Boletins</Link>
-          <Link href="/diretorias" className="hover:text-blue-200 transition">Diretorias</Link>
-          <Link href="/aeb-escola" className="hover:text-blue-200 transition">AEB Escola</Link>
-          <Link href="/contato" className="hover:text-blue-200 transition">Contato</Link>
-        </nav>
+    <header className="flex items-center justify-between px-6 md:px-8 py-5">
+      <div>
+        <h2 className="text-2xl font-bold text-[#1a1a1a]">Bem-vindo de volta</h2>
+        <p className="text-sm text-[#737373] mt-0.5">Veja o que está acontecendo na AEB hoje</p>
+      </div>
+
+      <div className="flex items-center gap-3">
+        <div className={`flex items-center bg-white rounded-2xl border border-[#e5e5e0] px-4 py-2.5 transition-all duration-300 ${searchOpen ? 'w-64' : 'w-44'}`}>
+          <Search className="w-4 h-4 text-gray-400 mr-2" />
+          <input
+            type="text"
+            placeholder="Buscar..."
+            onFocus={() => setSearchOpen(true)}
+            onBlur={() => setSearchOpen(false)}
+            className="bg-transparent text-sm outline-none w-full text-[#1a1a1a] placeholder:text-gray-400"
+          />
+        </div>
+        <button className="relative w-10 h-10 bg-white rounded-2xl border border-[#e5e5e0] flex items-center justify-center hover:shadow-md transition">
+          <Bell className="w-4 h-4 text-[#1a1a1a]" />
+          <span className="absolute top-2 right-2.5 w-2 h-2 bg-red-500 rounded-full"></span>
+        </button>
+        <button className="md:hidden w-10 h-10 bg-white rounded-2xl border border-[#e5e5e0] flex items-center justify-center">
+          <Menu className="w-4 h-4 text-[#1a1a1a]" />
+        </button>
       </div>
     </header>
   );
