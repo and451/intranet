@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: intranet-aeb
+    runtime: node
+    plan: starter
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: AUTH_SECRET
+        generateValue: true
+      - key: AUTH_TRUST_HOST
+        value: true
+      - key: NEXTAUTH_URL
+        value: https://intranet-aeb.onrender.com
