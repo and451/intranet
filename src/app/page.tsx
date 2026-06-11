@@ -2,7 +2,7 @@
 import SuiteBar from "@/components/SuiteBar";
 import SiteHeader from "@/components/SiteHeader";
 import AvisoImportante from "@/components/AvisoImportante";
-import HeroSection from "@/components/HeroSection";
+import HeroCarousel from "@/components/HeroCarousel";
 import DashboardViva from "@/components/DashboardViva";
 import NoticiasGrid from "@/components/NoticiasGrid";
 import QuickLinks from "@/components/QuickLinks";
@@ -25,7 +25,7 @@ export default function Home() {
 
       <main className="max-w-[1204px] mx-auto px-6 py-6 flex flex-col gap-7">
         <AvisoImportante />
-        <HeroSection />
+        <HeroCarousel />
         <DashboardViva />
         <NoticiasGrid />
         <QuickLinks />
