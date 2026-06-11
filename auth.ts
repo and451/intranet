@@ -15,6 +15,12 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
     }),
   ],
   callbacks: {
+    async redirect({ url, baseUrl }) {
+      // Garante que o redirecionamento fique dentro do domínio da aplicação
+      if (url.startsWith(baseUrl)) return url;
+      if (url.startsWith("/")) return `${baseUrl}${url}`;
+      return baseUrl;
+    },
     async jwt({ token, account }) {
       if (account) {
         token.accessToken = account.access_token;
