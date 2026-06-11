@@ -1,0 +1,209 @@
+[
+  {
+    "id": "sei",
+    "nome": "SEI",
+    "descricao": "Sistema Eletrônico de Informações: gestão de documentos e processos eletrônicos da AEB, integrado ao Processo Eletrônico Nacional (PEN).",
+    "icone": "/images/sistemas/sei.png",
+    "url": "https://sei.aeb.gov.br/",
+    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2021/04/Manual-de-utilizacao-Sei.pdf",
+    "responsavel": "CTI"
+  },
+  {
+    "id": "singular",
+    "nome": "Singular Studio",
+    "descricao": "Solução integrada ao SEI para otimização de processos, com automatização de análises e evolução de fluxos e formulários sem necessidade de programação.",
+    "icone": "/images/sistemas/singular.png",
+    "url": "https://servicos.aeb.gov.br/",
+    "manual": null,
+    "responsavel": "CTI"
+  },
+  {
+    "id": "office365",
+    "nome": "Microsoft 365",
+    "descricao": "Versões atualizadas dos programas do Office, armazenamento online seguro com acesso remoto e recursos avançados de segurança.",
+    "icone": "/images/sistemas/office365.png",
+    "url": "https://login.microsoftonline.com/",
+    "manual": null,
+    "responsavel": "CTI"
+  },
+  {
+    "id": "mfa",
+    "nome": "MFA — Autenticação Multifator",
+    "descricao": "Autenticação multifator em todas as contas Microsoft da AEB, com confirmação de identidade pelo aplicativo Microsoft Authenticator.",
+    "icone": "/images/sistemas/mfa.png",
+    "url": "https://nuvem-hml.aeb.gov.br/s/XJpcKsjLcbt8atH",
+    "manual": null,
+    "responsavel": "CTI"
+  },
+  {
+    "id": "webmail",
+    "nome": "Webmail",
+    "descricao": "E-mail corporativo da AEB acessível via web: envio e recebimento de mensagens, agendamento de reuniões e organização em pastas. App Microsoft Outlook para iOS e Android.",
+    "icone": "/images/sistemas/webmail.png",
+    "url": "https://outlook.office.com",
+    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2021/06/Outlook.pdf",
+    "responsavel": "CTI"
+  },
+  {
+    "id": "nuvem",
+    "nome": "Nuvem AEB",
+    "descricao": "Armazenamento e sincronização de arquivos em nuvem privada da AEB, com carregamento de qualquer dispositivo e compartilhamento por link.",
+    "icone": "/images/sistemas/nuvem.png",
+    "url": "https://nuvem.aeb.gov.br/",
+    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2021/06/Manual-de-utilizacao-Cloud.pdf",
+    "responsavel": "CTI"
+  },
+  {
+    "id": "vpn",
+    "nome": "VPN",
+    "descricao": "Conexão de rede segura e criptografada com a rede interna corporativa para usuários remotos, em Windows e macOS.",
+    "icone": "/images/sistemas/vpn.png",
+    "url": "https://intranet-old.aeb.gov.br/wp-content/uploads/2024/09/Procedimento-de-acesso-a-VPN-da-AEB.pdf",
+    "manual": null,
+    "responsavel": "CTI"
+  },
+  {
+    "id": "ponto",
+    "nome": "Ponto — Oitchau",
+    "descricao": "Registro de frequência dos colaboradores da AEB por wi-fi e geolocalização, na versão web ou em apps iOS e Android. Administrado pela CGP.",
+    "icone": "/images/sistemas/ponto.png",
+    "url": "https://admin.oitchau.com.br/login",
+    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2021/04/Manual-de-utilizacao-Oitchau.pdf",
+    "responsavel": "CGP"
+  },
+  {
+    "id": "citsmart",
+    "nome": "Citsmart — Suporte",
+    "descricao": "Portal único de abertura e acompanhamento de chamados (tickets) para os serviços de Tecnologia e Logística, com controle de SLAs e relatórios.",
+    "icone": "/images/sistemas/citsmart.png",
+    "url": "https://citsmart.aeb.gov.br/",
+    "manual": null,
+    "responsavel": "CTI"
+  },
+  {
+    "id": "paineis",
+    "nome": "Painéis AEB",
+    "descricao": "Dashboards de Business Intelligence com métricas e indicadores para apoio à tomada de decisão e monitoramento de resultados.",
+    "icone": "/images/sistemas/paineis.png",
+    "url": "https://paineis.aeb.gov.br/",
+    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2021/06/Manual-de-utilizacao-Paineis.pdf",
+    "responsavel": "CTI"
+  },
+  {
+    "id": "ramais",
+    "nome": "Ramais — Colaboradores",
+    "descricao": "Pesquisa de ramais e colaboradores por nome ou lotação, com foto, além dos aniversariantes do mês.",
+    "icone": "/images/sistemas/ramais.png",
+    "url": "https://colaboradores.aeb.gov.br",
+    "manual": null,
+    "responsavel": "CTI"
+  },
+  {
+    "id": "reserva-salas",
+    "nome": "Reserva de Espaços",
+    "descricao": "Agendamento dos espaços de reuniões e eventos da AEB (Cinema, Auditório e salas de reunião), com bloqueio automático de horários duplicados.",
+    "icone": "/images/sistemas/reserva-salas.png",
+    "url": "https://minhaagendavirtual.com.br/aeb-salas",
+    "manual": null,
+    "responsavel": "DSG"
+  },
+  {
+    "id": "cartao-virtual",
+    "nome": "Cartão Virtual",
+    "descricao": "Gera automaticamente a assinatura digital em PNG para o e-mail corporativo, com nome, cargo, telefone e e-mail do colaborador.",
+    "icone": "/images/sistemas/assinatura-email.png",
+    "url": "https://cartaovirtual.aeb.gov.br/",
+    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2021/04/Manual-de-utilizacao-Assinatura-de-e-mail.pdf",
+    "responsavel": "CTI"
+  },
+  {
+    "id": "conferencia-web",
+    "nome": "Conferência Web — RNP",
+    "descricao": "Encontros virtuais com compartilhamento de áudio, vídeo, texto, imagens, quadro branco e tela, via Rede Nacional de Ensino e Pesquisa.",
+    "icone": "/images/sistemas/conferencia-web.png",
+    "url": "https://conferenciaweb.rnp.br/login",
+    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2021/04/Manual-de-utilizacao-de-ConferenciaWEB.pdf",
+    "responsavel": "CTI / RNP"
+  },
+  {
+    "id": "filesender",
+    "nome": "FileSender — RNP",
+    "descricao": "Envio de arquivos grandes entre usuários da rede por interface web, com garantia de remetente e sem estourar os limites da caixa postal.",
+    "icone": "/images/sistemas/filesender.png",
+    "url": "https://www.rnp.br/servicos/filesender",
+    "manual": null,
+    "responsavel": "CTI / RNP"
+  },
+  {
+    "id": "periodicos",
+    "nome": "Portal de Periódicos CAPES",
+    "descricao": "Acesso remoto ao conteúdo científico do Portal de Periódicos da CAPES/MEC, via Comunidade Acadêmica Federada (CAFe), na qual a AEB é credenciada.",
+    "icone": "/images/sistemas/periodicos.jpg",
+    "url": "https://www-periodicos-capes-gov-br.ezl.periodicos.capes.gov.br/?option=com_plogin&ym=3&pds_handle=&calling_system=primo&institute=CAPES&targetUrl=https://www-periodicos-capes-gov-br.ezl.periodicos.capes.gov.br&Itemid=155&pagina=CAFe",
+    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2021/04/Manual-de-utilizacao-Periodicos.pdf",
+    "responsavel": "CAFe / RNP"
+  },
+  {
+    "id": "dados-abertos",
+    "nome": "Dados Abertos",
+    "descricao": "Portal de catalogação de dados públicos da AEB na plataforma CKAN, em atendimento à Lei de Acesso à Informação (Lei 12.527/2011).",
+    "icone": "/images/sistemas/dados-abertos.png",
+    "url": "https://dadosabertos.aeb.gov.br/",
+    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2021/06/Manual-de-utilizacao-Ckan-Dados-abertos.pdf",
+    "responsavel": "CTI"
+  },
+  {
+    "id": "portal-govbr",
+    "nome": "Portal GOV.BR",
+    "descricao": "Canal digital unificado do governo federal, com a página institucional da AEB e os serviços públicos ao cidadão.",
+    "icone": "/images/sistemas/portal-govbr.png",
+    "url": "https://www.gov.br/aeb/pt-br",
+    "manual": null,
+    "responsavel": "CTI"
+  },
+  {
+    "id": "siads",
+    "nome": "SIADS",
+    "descricao": "Controle de estoques de materiais, bens patrimoniais e serviços de transporte dos órgãos da Administração Pública Federal.",
+    "icone": "/images/sistemas/siads.png",
+    "url": "https://siads.fazenda.gov.br/siadsweb/private/default",
+    "manual": null,
+    "responsavel": "CTI"
+  },
+  {
+    "id": "scdp",
+    "nome": "SCDP",
+    "descricao": "Administração de solicitações e pagamentos de diárias e passagens do governo federal.",
+    "icone": "/images/sistemas/scdp.png",
+    "url": "https://www2.scdp.gov.br/novoscdp/home.xhtml",
+    "manual": null,
+    "responsavel": "CTI"
+  },
+  {
+    "id": "solides",
+    "nome": "Sólides",
+    "descricao": "Plataforma de gestão de pessoas: mapeamento de competências, análise de perfil comportamental, avaliação de desempenho e pesquisa de clima.",
+    "icone": "/images/sistemas/solides.png",
+    "url": "https://system.solides.com/pt-BR/usuarios/sign_in",
+    "manual": null,
+    "responsavel": "CGP"
+  },
+  {
+    "id": "cipi",
+    "nome": "CIPI",
+    "descricao": "Consulta aberta aos dados de gestão dos recursos federais aplicados em obras e projetos de investimento em infraestrutura.",
+    "icone": "/images/sistemas/cipi.png",
+    "url": "https://cipi.economia.gov.br/cipi-frontend/pesquisa-aberta-projetos",
+    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2022/12/ManualdoUsurioCIPI2022_v1.6.0.pdf",
+    "responsavel": "DIPA"
+  },
+  {
+    "id": "pac",
+    "nome": "PAC — Plano Anual de Contratações",
+    "descricao": "Documento que consolida as compras e contratações que o órgão pretende realizar ou prorrogar no ano seguinte, incluindo soluções de TI.",
+    "icone": "/images/sistemas/pac.png",
+    "url": null,
+    "manual": null,
+    "responsavel": "DPOA"
+  }
+]

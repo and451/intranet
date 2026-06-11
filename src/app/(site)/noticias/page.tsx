@@ -1,16 +1,19 @@
 import Link from "next/link";
-import { Newspaper } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { getNoticias, formatarData } from "@/lib/content";
 
 const POR_PAGINA = 20;
 
-const coresCategorias: Record<string, string> = {
-  "Notícia": "bg-blue-50 text-blue-700",
-  "Últimas": "bg-emerald-50 text-emerald-700",
-  "Avisos": "bg-amber-50 text-amber-700",
-  "Clipping": "bg-purple-50 text-purple-700",
-  "Eventos": "bg-pink-50 text-pink-700",
+// Selo da fonte no estilo dos BriefingItem do Claude Design
+const fontes: Record<string, { rotulo: string; fundo: string; cor: string }> = {
+  "Notícia": { rotulo: "Notícia", fundo: "#E7EFFB", cor: "#0B4DA2" },
+  "Últimas": { rotulo: "Últimas", fundo: "#E3F5E1", cor: "#168821" },
+  "Avisos": { rotulo: "Aviso", fundo: "#FFF3CD", cor: "#7A5C00" },
+  "Clipping": { rotulo: "Clipping", fundo: "#F0E6FF", cor: "#6B3FA0" },
+  "Acontece": { rotulo: "Acontece", fundo: "#FCE7F3", cor: "#9D2463" },
+  "HoraH": { rotulo: "Hora H", fundo: "#FFE8D9", cor: "#B3541E" },
 };
+const fontePadrao = { rotulo: "AEB", fundo: "#EAEAEA", cor: "#444444" };
 
 export default async function NoticiasPage({
   searchParams,
@@ -24,45 +27,59 @@ export default async function NoticiasPage({
   const noticias = todas.slice((paginaAtual - 1) * POR_PAGINA, paginaAtual * POR_PAGINA);
 
   return (
-    <div>
-      <h1 className="text-2xl font-bold text-[#1a1a1a] mb-6">Notícias</h1>
-      <div className="grid gap-4">
-        {noticias.map((n) => (
-          <Link key={n.id} href={`/noticias/${n.slug}`}>
-            <article className="bg-white rounded-3xl p-5 border border-[#e5e5e0] hover:shadow-lg transition group">
-              <div className="flex items-start gap-4">
-                {n.imagem ? (
-                  <img
-                    src={n.imagem}
-                    alt=""
-                    className="w-20 h-20 rounded-2xl object-cover flex-shrink-0"
-                  />
-                ) : (
-                  <div className="w-20 h-20 bg-[#f0f0eb] rounded-2xl flex items-center justify-center flex-shrink-0">
-                    <Newspaper className="w-6 h-6 text-[#737373]" />
-                  </div>
-                )}
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1.5 flex-wrap">
-                    {n.categorias.slice(0, 2).map((c) => (
-                      <span
-                        key={c}
-                        className={`text-[10px] font-semibold px-2.5 py-0.5 rounded-full ${coresCategorias[c] ?? "bg-gray-100 text-gray-700"}`}
-                      >
-                        {c}
-                      </span>
-                    ))}
-                    <span className="text-xs text-[#737373]">{formatarData(n.data)}</span>
-                  </div>
-                  <h2 className="text-base font-semibold text-[#1a1a1a] group-hover:text-[#1e3a5f] transition line-clamp-2">{n.titulo}</h2>
-                  {n.resumo && (
-                    <p className="text-sm text-[#737373] mt-1.5 line-clamp-2">{n.resumo}</p>
-                  )}
-                </div>
+    <div className="max-w-[860px] mx-auto">
+      <div className="flex items-baseline justify-between mb-5">
+        <h1 className="text-2xl font-bold text-[#1a1a1a]">Notícias</h1>
+        <span className="text-xs text-[#737373]">{todas.length} publicações</span>
+      </div>
+
+      <div className="flex flex-col gap-3">
+        {noticias.map((n) => {
+          const fonte = fontes[n.categorias[0] ?? ""] ?? fontePadrao;
+          return (
+            <article
+              key={n.id}
+              className="bg-white rounded shadow-[0_1.6px_3.6px_rgba(0,0,0,0.10),0_0.3px_0.9px_rgba(0,0,0,0.07)] p-4 flex gap-3.5"
+            >
+              <div
+                className="self-start text-[10px] font-bold px-2.5 py-1 rounded whitespace-nowrap flex-shrink-0 mt-0.5"
+                style={{ background: fonte.fundo, color: fonte.cor }}
+              >
+                {fonte.rotulo}
               </div>
+
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 text-[11.5px] text-[#616161] mb-1 flex-wrap">
+                  <span className="font-semibold">{n.categorias[1] ?? "Agência Espacial Brasileira"}</span>
+                  <span>·</span>
+                  <span>{formatarData(n.data)}</span>
+                </div>
+                <h2 className="text-[15px] font-semibold text-[#242424] leading-snug">
+                  <Link href={`/noticias/${n.slug}`} className="hover:text-[#0B4DA2] transition">
+                    {n.titulo}
+                  </Link>
+                </h2>
+                {n.resumo && (
+                  <p className="text-[13px] text-[#616161] leading-relaxed mt-1 line-clamp-2">{n.resumo}</p>
+                )}
+                <Link
+                  href={`/noticias/${n.slug}`}
+                  className="inline-flex items-center gap-1 text-xs font-semibold text-[#0B4DA2] hover:underline mt-2"
+                >
+                  Ler notícia <ArrowUpRight className="w-3 h-3" />
+                </Link>
+              </div>
+
+              {n.imagem && (
+                <img
+                  src={n.imagem}
+                  alt=""
+                  className="w-[110px] h-[78px] rounded object-cover flex-shrink-0 self-start"
+                />
+              )}
             </article>
-          </Link>
-        ))}
+          );
+        })}
       </div>
 
       {/* Paginação */}
@@ -70,18 +87,18 @@ export default async function NoticiasPage({
         {paginaAtual > 1 && (
           <Link
             href={`/noticias?pagina=${paginaAtual - 1}`}
-            className="px-4 py-2 text-sm font-semibold bg-white border border-[#e5e5e0] rounded-xl hover:bg-[#f0f0eb] transition"
+            className="px-4 py-2 text-xs font-semibold bg-white border border-[#E1E1E1] rounded hover:bg-[#F5F5F5] transition"
           >
             Anterior
           </Link>
         )}
-        <span className="text-sm text-[#737373] px-3">
+        <span className="text-xs text-[#737373] px-3">
           Página {paginaAtual} de {totalPaginas}
         </span>
         {paginaAtual < totalPaginas && (
           <Link
             href={`/noticias?pagina=${paginaAtual + 1}`}
-            className="px-4 py-2 text-sm font-semibold bg-white border border-[#e5e5e0] rounded-xl hover:bg-[#f0f0eb] transition"
+            className="px-4 py-2 text-xs font-semibold bg-white border border-[#E1E1E1] rounded hover:bg-[#F5F5F5] transition"
           >
             Próxima
           </Link>

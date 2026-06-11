@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 // Sistemas do acesso rápido da intranet antiga (INTRAEB), com os ícones originais.
 const sistemas = [
   { nome: "SEI", icone: "/images/sistemas/sei.png", url: "https://sei.aeb.gov.br/" },
@@ -15,14 +17,9 @@ export default function QuickLinks() {
     <section>
       <div className="flex items-baseline justify-between mb-3.5">
         <h2 className="text-xl font-semibold text-[#242424]">Sistemas e ferramentas</h2>
-        <a
-          href="https://intranet-old.aeb.gov.br/sistemas/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-xs font-semibold text-[#0B4DA2] hover:underline"
-        >
+        <Link href="/sistemas" className="text-xs font-semibold text-[#0B4DA2] hover:underline">
           Todos os sistemas
-        </a>
+        </Link>
       </div>
       <div className="grid grid-cols-8 gap-2.5">
         {sistemas.map((s) => (
