@@ -3,9 +3,27 @@
 import Link from "next/link";
 
 const destaques = [
-  { id: 1, titulo: "Semana do Espaco 2026: programacao confirmada", subtitulo: "CCS — Comunicacao Social", grande: true },
-  { id: 2, titulo: "Curso de Astronautica: inscricoes abertas", subtitulo: "", grande: false },
-  { id: 3, titulo: "Observatorio do Setor Espacial e atualizado", subtitulo: "", grande: false },
+  {
+    id: 1,
+    titulo: "Semana do Espaco 2026: programacao confirmada",
+    subtitulo: "CCS — Comunicacao Social",
+    grande: true,
+    bg: "from-[#071D41] to-[#0B4DA2]",
+  },
+  {
+    id: 2,
+    titulo: "Curso de Astronautica: inscricoes abertas",
+    subtitulo: "AEB Escola",
+    grande: false,
+    bg: "from-[#1351B4] to-[#2670E8]",
+  },
+  {
+    id: 3,
+    titulo: "Observatorio do Setor Espacial e atualizado",
+    subtitulo: "DIEN",
+    grande: false,
+    bg: "from-[#0B4DA2] to-[#1351B4]",
+  },
 ];
 
 export default function HeroSection() {
@@ -18,14 +36,13 @@ export default function HeroSection() {
             href="#"
             className={`relative rounded overflow-hidden flex items-end shadow-[0_1.6px_3.6px_rgba(0,0,0,0.10),0_0.3px_0.9px_rgba(0,0,0,0.07)] ${
               d.grande ? "row-span-2" : ""
-            }`}
+            } bg-gradient-to-br ${d.bg}`}
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-[#E8ECF2] to-[#F2F5F9] flex items-center justify-center">
-              <span className="font-mono text-[11px] text-[#8895A7] bg-white/85 px-2.5 py-1 rounded">foto institucional</span>
-            </div>
-            <div className="relative z-10 w-full p-4 bg-gradient-to-t from-[rgba(7,29,65,0.85)] to-transparent text-white">
-              <strong className={`block ${d.grande ? "text-[15px]" : "text-[13px]"} font-semibold`}>{d.titulo}</strong>
-              {d.subtitulo && <span className="text-[11.5px] opacity-85">{d.subtitulo}</span>}
+            <div className="relative z-10 w-full p-4">
+              <strong className={`block ${d.grande ? "text-[15px]" : "text-[13px]"} font-semibold text-white leading-snug`}>
+                {d.titulo}
+              </strong>
+              <span className="text-[11.5px] text-white/80">{d.subtitulo}</span>
             </div>
           </Link>
         ))}
