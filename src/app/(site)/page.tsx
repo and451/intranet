@@ -11,19 +11,29 @@ import ReservaSala from "@/components/ReservaSala";
 import MeusFavoritos from "@/components/MeusFavoritos";
 import LinksUteis from "@/components/LinksUteis";
 import SuporteTI from "@/components/SuporteTI";
-import { getNoticiasRecentes, getBoletinsRecentes, formatarData } from "@/lib/content";
+import { getNoticia, getNoticiasRecentes, getBoletinsRecentes, formatarData } from "@/lib/content";
+
+// Tiles laterais do hero: destaques fixos da atividade finalística da AEB
+// (AEB Escola, Observatório...), conforme o layout do Claude Design.
+const destaquesFinalisticos = [
+  "novo-curso-do-aeb-escola-aborda-conceitos-de-astronautica",
+  "observatorio-do-setor-espacial-brasileiro-entrega-novas-funcionalidades",
+];
 
 export default function Home() {
   const comFoto = getNoticiasRecentes(8, true);
-  const paraDestaque = (n: (typeof comFoto)[number]) => ({
+  const paraDestaque = (n: NonNullable<ReturnType<typeof getNoticia>>) => ({
     id: n.id,
     titulo: n.titulo,
     subtitulo: `${n.categorias[0] ?? "AEB"} · ${formatarData(n.data)}`,
     imagem: n.imagem!,
     link: `/noticias/${n.slug}`,
   });
-  const carrossel = comFoto.slice(0, 3).map(paraDestaque);
-  const laterais = comFoto.slice(3, 5).map(paraDestaque);
+  const carrossel = comFoto.slice(0, 5).map(paraDestaque);
+  const laterais = destaquesFinalisticos
+    .map((slug) => getNoticia(slug))
+    .filter((n) => n !== undefined && n.imagem)
+    .map((n) => paraDestaque(n!));
   const cards = comFoto.slice(5, 8).map((n) => ({
     id: n.id,
     titulo: n.titulo,
