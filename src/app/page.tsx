@@ -6,6 +6,7 @@ import HeroSection from "@/components/HeroSection";
 import DashboardViva from "@/components/DashboardViva";
 import NoticiasGrid from "@/components/NoticiasGrid";
 import QuickLinks from "@/components/QuickLinks";
+import DiretoriasLinks from "@/components/DiretoriasLinks";
 import NormasBoletins from "@/components/NormasBoletins";
 import EventosSection from "@/components/EventosSection";
 import AniversariantesSection from "@/components/AniversariantesSection";
@@ -28,6 +29,7 @@ export default function Home() {
         <DashboardViva />
         <NoticiasGrid />
         <QuickLinks />
+        <DiretoriasLinks />
 
         <div className="grid grid-cols-[2fr_1fr] gap-6 items-start">
           <NormasBoletins />

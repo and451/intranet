@@ -5,24 +5,24 @@ import Link from "next/link";
 const destaques = [
   {
     id: 1,
-    titulo: "Semana do Espaco 2026: programacao confirmada",
-    subtitulo: "CCS — Comunicacao Social",
+    titulo: "Entrega de novas funcionalidades no Observatorio do Setor Espacial Brasileiro",
+    subtitulo: "Thiago Sousa · 20/02/2024",
     grande: true,
     bg: "from-[#071D41] to-[#0B4DA2]",
   },
   {
     id: 2,
-    titulo: "Curso de Astronautica: inscricoes abertas",
-    subtitulo: "AEB Escola",
+    titulo: "Novo curso do AEB Escola aborda conceitos de astronautica",
+    subtitulo: "Tania Costa · DIEN · 09/09/2022",
     grande: false,
     bg: "from-[#1351B4] to-[#2670E8]",
   },
   {
     id: 3,
-    titulo: "Observatorio do Setor Espacial e atualizado",
-    subtitulo: "DIEN",
+    titulo: "Workshop Sobre Pequenos Satelites Educacionais — inscricoes abertas",
+    subtitulo: "Jean Borges · DIEN · 11/11/2021",
     grande: false,
-    bg: "from-[#0B4DA2] to-[#1351B4]",
+    bg: "from-[#0F7B0F] to-[#168821]",
   },
 ];
 
