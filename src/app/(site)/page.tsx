@@ -42,7 +42,7 @@ export default function Home() {
     imagem: n.imagem,
     link: `/noticias/${n.slug}`,
   }));
-  const boletins = getBoletinsRecentes(5);
+  const boletins = getBoletinsRecentes(8);
 
   return (
     <div className="flex flex-col gap-7">
@@ -56,13 +56,16 @@ export default function Home() {
       <div className="grid grid-cols-[2fr_1fr] gap-6 items-start">
         <NormasBoletins boletins={boletins} />
         <div className="flex flex-col gap-6">
-          <ReservaSala />
           <EventosSection />
           <AniversariantesSection />
-          <MeusFavoritos />
-          <LinksUteis />
-          <SuporteTI />
         </div>
+      </div>
+
+      <div className="grid grid-cols-4 gap-4 items-start">
+        <ReservaSala />
+        <MeusFavoritos />
+        <LinksUteis />
+        <SuporteTI />
       </div>
     </div>
   );

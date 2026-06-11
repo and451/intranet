@@ -2,11 +2,12 @@
 
 import { Link2, ExternalLink } from "lucide-react";
 
+// Links reais da intranet atual (Vindula) e do gov.br
 const links = [
-  { id: 1, titulo: "Gov.Br", url: "https://www.gov.br" },
-  { id: 2, titulo: "AEB (site institucional)", url: "https://www.gov.br/aeb" },
-  { id: 3, titulo: "SIGMINE", url: "#" },
-  { id: 4, titulo: "Sistema de RH", url: "#" },
+  { id: 1, titulo: "AEB (site institucional)", url: "https://www.gov.br/aeb/pt-br" },
+  { id: 2, titulo: "Ramais — Colaboradores", url: "https://colaboradores.aeb.gov.br/" },
+  { id: 3, titulo: "PETRVS (PGD)", url: "https://pgd-petrvs.aeb.gov.br/" },
+  { id: 4, titulo: "Gov.Br", url: "https://www.gov.br" },
 ];
 
 export default function LinksUteis() {
