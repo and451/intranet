@@ -1,7 +1,8 @@
 ﻿"use client";
 
 import { useGraphData } from "@/hooks/useGraphData";
-import { AtSign, MessageSquare, Clock } from "lucide-react";
+import { useSession } from "next-auth/react";
+import { AtSign, MessageSquare, Clock, AlertCircle, Loader2 } from "lucide-react";
 
 interface GraphMessage {
   subject: string;
@@ -23,9 +24,10 @@ interface GraphEvent {
 }
 
 export default function DashboardViva() {
-  const { data: emailData, loading: emailLoading } = useGraphData<{ value: GraphMessage[] }>({ endpoint: "emails" });
-  const { data: teamsData, loading: teamsLoading } = useGraphData<{ mensagens: GraphChatMessage[] }>({ endpoint: "teams" });
-  const { data: calendarData, loading: calendarLoading } = useGraphData<{ value: GraphEvent[] }>({ endpoint: "calendar" });
+  const { data: session } = useSession();
+  const { data: emailData, loading: emailLoading, error: emailError } = useGraphData<{ value: GraphMessage[] }>({ endpoint: "emails", enabled: !!session });
+  const { data: teamsData, loading: teamsLoading, error: teamsError } = useGraphData<{ mensagens: GraphChatMessage[] }>({ endpoint: "teams", enabled: !!session });
+  const { data: calendarData, loading: calendarLoading, error: calendarError } = useGraphData<{ value: GraphEvent[] }>({ endpoint: "calendar", enabled: !!session });
 
   const emails = emailData?.value?.slice(0, 2) || [];
   const mensagens = teamsData?.mensagens?.slice(0, 2) || [];
@@ -36,37 +38,43 @@ export default function DashboardViva() {
       icone: AtSign,
       cor: "#0F6CBD",
       titulo: "Seus e-mails",
-      count: emailLoading ? "..." : `${emailData?.value?.length || 0} nao lidos`,
+      count: emailLoading ? "Carregando..." : emailError ? "Erro" : `${emailData?.value?.length || 0} nao lidos`,
       itens: emails.map((e) => ({
         titulo: e.subject,
         meta: `${e.sender?.emailAddress?.name || e.sender?.emailAddress?.address} · ${new Date(e.receivedDateTime).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}`,
       })),
       link: "Abrir no Outlook",
       href: "https://outlook.office365.com",
+      loading: emailLoading,
+      error: emailError,
     },
     {
       icone: MessageSquare,
       cor: "#6264A7",
       titulo: "Mencoes no Teams",
-      count: teamsLoading ? "..." : `${mensagens.length} novas`,
+      count: teamsLoading ? "Carregando..." : teamsError ? "Erro" : `${mensagens.length} novas`,
       itens: mensagens.map((m) => ({
         titulo: m.from?.user?.displayName ? `${m.from.user.displayName}` : "Nova mensagem",
         meta: m.createdDateTime ? new Date(m.createdDateTime).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" }) : "",
       })),
       link: "Abrir no Teams",
       href: "https://teams.microsoft.com",
+      loading: teamsLoading,
+      error: teamsError,
     },
     {
       icone: Clock,
       cor: "#0F7B0F",
       titulo: "Agenda de hoje",
-      count: calendarLoading ? "..." : `${eventos.length} compromissos`,
+      count: calendarLoading ? "Carregando..." : calendarError ? "Erro" : `${eventos.length} compromissos`,
       itens: eventos.map((e) => ({
         titulo: `${new Date(e.start.dateTime).toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })} — ${e.subject}`,
         meta: e.location?.displayName || "Teams" + (e.end.dateTime ? ` · ${Math.round((new Date(e.end.dateTime).getTime() - new Date(e.start.dateTime).getTime()) / 60000)}min` : ""),
       })),
       link: "Ver calendario completo",
       href: "https://teams.microsoft.com",
+      loading: calendarLoading,
+      error: calendarError,
     },
   ];
 
@@ -88,12 +96,28 @@ export default function DashboardViva() {
                 <span className="text-[11.5px] text-[#616161]">{card.count}</span>
               </div>
             </div>
-            {card.itens.map((item, i) => (
-              <div key={i} className="border-t border-[#F5F5F5] pt-2">
-                <p className="text-xs font-semibold text-[#242424] leading-snug">{item.titulo}</p>
-                <span className="text-[11.5px] text-[#616161]">{item.meta}</span>
+            {card.loading ? (
+              <div className="border-t border-[#F5F5F5] pt-2 flex items-center gap-2">
+                <Loader2 className="w-3 h-3 text-[#616161] animate-spin" />
+                <span className="text-xs text-[#616161]">Carregando dados...</span>
               </div>
-            ))}
+            ) : card.error ? (
+              <div className="border-t border-[#F5F5F5] pt-2 flex items-center gap-2">
+                <AlertCircle className="w-3 h-3 text-[#E52207]" />
+                <span className="text-xs text-[#E52207]">Erro ao carregar</span>
+              </div>
+            ) : card.itens.length === 0 ? (
+              <div className="border-t border-[#F5F5F5] pt-2">
+                <span className="text-xs text-[#616161]">Nenhum item</span>
+              </div>
+            ) : (
+              card.itens.map((item, i) => (
+                <div key={i} className="border-t border-[#F5F5F5] pt-2">
+                  <p className="text-xs font-semibold text-[#242424] leading-snug">{item.titulo}</p>
+                  <span className="text-[11.5px] text-[#616161]">{item.meta}</span>
+                </div>
+              ))
+            )}
             <a href={card.href} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold text-[#0B4DA2] mt-auto hover:underline">
               {card.link}
             </a>
