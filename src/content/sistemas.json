@@ -5,7 +5,7 @@
     "descricao": "Sistema Eletrônico de Informações: gestão de documentos e processos eletrônicos da AEB, integrado ao Processo Eletrônico Nacional (PEN).",
     "icone": "/images/sistemas/sei.png",
     "url": "https://sei.aeb.gov.br/",
-    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2021/04/Manual-de-utilizacao-Sei.pdf",
+    "manual": "/docs/manuais/manual-sei.pdf",
     "responsavel": "CTI"
   },
   {
@@ -41,7 +41,7 @@
     "descricao": "E-mail corporativo da AEB acessível via web: envio e recebimento de mensagens, agendamento de reuniões e organização em pastas. App Microsoft Outlook para iOS e Android.",
     "icone": "/images/sistemas/webmail.png",
     "url": "https://outlook.office.com",
-    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2021/06/Outlook.pdf",
+    "manual": "/docs/manuais/manual-webmail.pdf",
     "responsavel": "CTI"
   },
   {
@@ -50,7 +50,7 @@
     "descricao": "Armazenamento e sincronização de arquivos em nuvem privada da AEB, com carregamento de qualquer dispositivo e compartilhamento por link.",
     "icone": "/images/sistemas/nuvem.png",
     "url": "https://nuvem.aeb.gov.br/",
-    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2021/06/Manual-de-utilizacao-Cloud.pdf",
+    "manual": "/docs/manuais/manual-nuvem.pdf",
     "responsavel": "CTI"
   },
   {
@@ -58,7 +58,7 @@
     "nome": "VPN",
     "descricao": "Conexão de rede segura e criptografada com a rede interna corporativa para usuários remotos, em Windows e macOS.",
     "icone": "/images/sistemas/vpn.png",
-    "url": "https://intranet-old.aeb.gov.br/wp-content/uploads/2024/09/Procedimento-de-acesso-a-VPN-da-AEB.pdf",
+    "url": "/docs/manuais/procedimento-vpn.pdf",
     "manual": null,
     "responsavel": "CTI"
   },
@@ -68,7 +68,7 @@
     "descricao": "Registro de frequência dos colaboradores da AEB por wi-fi e geolocalização, na versão web ou em apps iOS e Android. Administrado pela CGP.",
     "icone": "/images/sistemas/ponto.png",
     "url": "https://admin.oitchau.com.br/login",
-    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2021/04/Manual-de-utilizacao-Oitchau.pdf",
+    "manual": "/docs/manuais/manual-ponto.pdf",
     "responsavel": "CGP"
   },
   {
@@ -86,7 +86,7 @@
     "descricao": "Dashboards de Business Intelligence com métricas e indicadores para apoio à tomada de decisão e monitoramento de resultados.",
     "icone": "/images/sistemas/paineis.png",
     "url": "https://paineis.aeb.gov.br/",
-    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2021/06/Manual-de-utilizacao-Paineis.pdf",
+    "manual": "/docs/manuais/manual-paineis.pdf",
     "responsavel": "CTI"
   },
   {
@@ -113,7 +113,7 @@
     "descricao": "Gera automaticamente a assinatura digital em PNG para o e-mail corporativo, com nome, cargo, telefone e e-mail do colaborador.",
     "icone": "/images/sistemas/assinatura-email.png",
     "url": "https://cartaovirtual.aeb.gov.br/",
-    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2021/04/Manual-de-utilizacao-Assinatura-de-e-mail.pdf",
+    "manual": "/docs/manuais/manual-cartao-virtual.pdf",
     "responsavel": "CTI"
   },
   {
@@ -122,7 +122,7 @@
     "descricao": "Encontros virtuais com compartilhamento de áudio, vídeo, texto, imagens, quadro branco e tela, via Rede Nacional de Ensino e Pesquisa.",
     "icone": "/images/sistemas/conferencia-web.png",
     "url": "https://conferenciaweb.rnp.br/login",
-    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2021/04/Manual-de-utilizacao-de-ConferenciaWEB.pdf",
+    "manual": "/docs/manuais/manual-conferencia-web.pdf",
     "responsavel": "CTI / RNP"
   },
   {
@@ -140,7 +140,7 @@
     "descricao": "Acesso remoto ao conteúdo científico do Portal de Periódicos da CAPES/MEC, via Comunidade Acadêmica Federada (CAFe), na qual a AEB é credenciada.",
     "icone": "/images/sistemas/periodicos.jpg",
     "url": "https://www-periodicos-capes-gov-br.ezl.periodicos.capes.gov.br/?option=com_plogin&ym=3&pds_handle=&calling_system=primo&institute=CAPES&targetUrl=https://www-periodicos-capes-gov-br.ezl.periodicos.capes.gov.br&Itemid=155&pagina=CAFe",
-    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2021/04/Manual-de-utilizacao-Periodicos.pdf",
+    "manual": "/docs/manuais/manual-periodicos.pdf",
     "responsavel": "CAFe / RNP"
   },
   {
@@ -149,7 +149,7 @@
     "descricao": "Portal de catalogação de dados públicos da AEB na plataforma CKAN, em atendimento à Lei de Acesso à Informação (Lei 12.527/2011).",
     "icone": "/images/sistemas/dados-abertos.png",
     "url": "https://dadosabertos.aeb.gov.br/",
-    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2021/06/Manual-de-utilizacao-Ckan-Dados-abertos.pdf",
+    "manual": "/docs/manuais/manual-dados-abertos.pdf",
     "responsavel": "CTI"
   },
   {
@@ -158,7 +158,7 @@
     "descricao": "Canal digital unificado do governo federal, com a página institucional da AEB e os serviços públicos ao cidadão.",
     "icone": "/images/sistemas/portal-govbr.png",
     "url": "https://www.gov.br/aeb/pt-br",
-    "manual": null,
+    "manual": "/docs/manuais/manual-portal-govbr.pdf",
     "responsavel": "CTI"
   },
   {
@@ -194,7 +194,7 @@
     "descricao": "Consulta aberta aos dados de gestão dos recursos federais aplicados em obras e projetos de investimento em infraestrutura.",
     "icone": "/images/sistemas/cipi.png",
     "url": "https://cipi.economia.gov.br/cipi-frontend/pesquisa-aberta-projetos",
-    "manual": "https://intranet-old.aeb.gov.br/wp-content/uploads/2022/12/ManualdoUsurioCIPI2022_v1.6.0.pdf",
+    "manual": "/docs/manuais/manual-cipi.pdf",
     "responsavel": "DIPA"
   },
   {
