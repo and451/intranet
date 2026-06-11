@@ -3,8 +3,12 @@
 import { signIn } from "next-auth/react";
 import { Rocket, Shield, Globe, Info } from "lucide-react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 export default function LoginPage() {
+  const searchParams = useSearchParams();
+  const callbackUrl = searchParams.get("callbackUrl") || "/";
+
   return (
     <div className="min-h-full flex items-center justify-center bg-[#f0f0eb] p-6">
       <div className="w-full max-w-md">
@@ -27,7 +31,7 @@ export default function LoginPage() {
           </div>
 
           <button
-            onClick={() => signIn("microsoft-entra-id", { callbackUrl: "/" })}
+            onClick={() => signIn("microsoft-entra-id", { callbackUrl })}
             className="w-full py-3 bg-gradient-to-r from-[#1e3a5f] to-[#2d4a73] text-white font-semibold rounded-xl hover:shadow-lg hover:opacity-95 transition flex items-center justify-center gap-2"
           >
             <svg className="w-5 h-5" viewBox="0 0 21 21" fill="currentColor">

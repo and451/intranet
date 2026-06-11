@@ -12,9 +12,11 @@ export default auth((req) => {
 
   if (isPublicRoute) return;
 
-  // Se não está logado e não é rota pública, redireciona para login
+  // Se não está logado e não é rota pública, redireciona para login com callbackUrl
   if (!isLoggedIn) {
-    return Response.redirect(new URL("/login", nextUrl));
+    const loginUrl = new URL("/login", nextUrl);
+    loginUrl.searchParams.set("callbackUrl", nextUrl.href);
+    return Response.redirect(loginUrl);
   }
 });
 
