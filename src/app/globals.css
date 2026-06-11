@@ -36,3 +36,52 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
 }
+
+/* HTML vindo do WordPress da intranet antiga (notícias) */
+.conteudo-noticia p {
+  margin-bottom: 1em;
+}
+
+.conteudo-noticia a {
+  color: #0b4da2;
+  text-decoration: underline;
+}
+
+.conteudo-noticia img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  margin: 1em 0;
+}
+
+.conteudo-noticia ul,
+.conteudo-noticia ol {
+  margin: 1em 0;
+  padding-left: 1.5em;
+  list-style: disc;
+}
+
+.conteudo-noticia ol {
+  list-style: decimal;
+}
+
+.conteudo-noticia h2,
+.conteudo-noticia h3,
+.conteudo-noticia h4 {
+  font-weight: 600;
+  margin: 1.2em 0 0.5em;
+}
+
+.conteudo-noticia iframe,
+.conteudo-noticia video {
+  max-width: 100%;
+}
+
+.conteudo-noticia figure {
+  margin: 1em 0;
+}
+
+.conteudo-noticia figcaption {
+  font-size: 0.8rem;
+  color: #737373;
+}
