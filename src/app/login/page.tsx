@@ -1,11 +1,21 @@
 ﻿"use client";
 
+import { Suspense } from "react";
 import { signIn } from "next-auth/react";
 import { Rocket, Shield, Globe, Info } from "lucide-react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
+// useSearchParams exige um limite de Suspense para o prerender do build
 export default function LoginPage() {
+  return (
+    <Suspense>
+      <LoginContent />
+    </Suspense>
+  );
+}
+
+function LoginContent() {
   const searchParams = useSearchParams();
   const callbackUrl = searchParams.get("callbackUrl") || "/";
 

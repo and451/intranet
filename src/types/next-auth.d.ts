@@ -1,8 +1,9 @@
-﻿import "next-auth";
+import "next-auth";
 
 declare module "next-auth" {
   interface Session {
     accessToken?: string;
+    error?: "RefreshTokenError";
   }
 }
 
@@ -11,5 +12,6 @@ declare module "next-auth/jwt" {
     accessToken?: string;
     refreshToken?: string;
     expiresAt?: number;
+    error?: "RefreshTokenError";
   }
 }
