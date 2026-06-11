@@ -2,8 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useSession } from "next-auth/react";
-import { Search, Bell } from "lucide-react";
+import { useSession, signOut } from "next-auth/react";
+import { Search, Bell, LogOut } from "lucide-react";
+import { useState, useRef, useEffect } from "react";
 
 const navItems = [
   { label: "Início", href: "/" },
@@ -18,6 +19,19 @@ const navItems = [
 export default function SiteHeader() {
   const pathname = usePathname();
   const { data: session } = useSession();
+  const [menuAberto, setMenuAberto] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuAberto(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const iniciais =
     session?.user?.name
       ?.split(" ")
@@ -58,11 +72,29 @@ export default function SiteHeader() {
               <Bell className="w-4 h-4" />
               <span className="absolute top-1.5 right-2 w-1.5 h-1.5 bg-[#E52207] rounded-full" />
             </button>
-            <div
-              className="w-9 h-9 rounded-full bg-[#1e3a5f] text-white text-xs font-bold flex items-center justify-center"
-              title={session?.user?.name ?? "Visitante"}
-            >
-              {iniciais}
+            <div ref={menuRef} className="relative">
+              <button
+                onClick={() => setMenuAberto(!menuAberto)}
+                className="w-9 h-9 rounded-full bg-[#1e3a5f] text-white text-xs font-bold flex items-center justify-center hover:opacity-90 transition"
+                title={session?.user?.name ?? "Visitante"}
+              >
+                {iniciais}
+              </button>
+              {menuAberto && (
+                <div className="absolute right-0 top-10 w-56 bg-white rounded-lg shadow-lg border border-[#E1E1E1] py-2 z-50">
+                  <div className="px-4 py-2 border-b border-[#F5F5F5]">
+                    <p className="text-sm font-semibold text-[#242424] truncate">{session?.user?.name ?? "Visitante"}</p>
+                    <p className="text-xs text-[#616161] truncate">{session?.user?.email ?? ""}</p>
+                  </div>
+                  <button
+                    onClick={() => signOut({ callbackUrl: "/login" })}
+                    className="w-full text-left px-4 py-2 text-sm text-[#242424] hover:bg-[#F5F5F5] flex items-center gap-2 transition"
+                  >
+                    <LogOut className="w-4 h-4 text-[#616161]" />
+                    Sair
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>
